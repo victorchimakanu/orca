@@ -22,60 +22,51 @@ Type one English sentence. An autonomous agent trades correlated Polymarket mark
   <a href="https://youtu.be/b8aPweQHPL0"><b>▶ Watch the demo on YouTube</b></a>
 </p>
 
-## One pager
-
-The submission one pager lives in this repo as **[How I Built Orca.md](./How%20I%20Built%20Orca.md)** — the full build story, the architecture decisions, and the tradeoffs.
-
 ## Documentation
 
-Full reference lives in **[apps/docs](./apps/docs)** and is served locally at **[http://localhost:3001](http://localhost:3001)** when you run `pnpm dev`. Highlights:
+The submission one pager — who Orca is for, why it changes their life, what's next — lives in **[How I Built Orca.md](./How%20I%20Built%20Orca.md)**.
 
-- **Quickstart** · install, run, paste your first policy
-- **User flow** · what the demo looks like in the browser, with screenshots
-- **Going live** · swap the fixture for live Polymarket data and watch real fills
-- **Built on aomi** · the exact aomi pieces Orca uses and how to extend them
-- **Architecture** · the full request path, every component named
-- **Tradeoffs** · what changed during the build and why
-
-The long form build story — and the submission one pager — lives in **[How I Built Orca.md](./How%20I%20Built%20Orca.md)**.
+The long form reference lives in **[apps/docs](./apps/docs)** (served at [localhost:3001](http://localhost:3001) when you run `pnpm dev`): quickstart, user flow with screenshots, going live, how aomi fits, architecture, tradeoffs.
 
 ---
 
-## Quickstart (under 5 minutes)
+## Quickstart — under 5 minutes
 
-You need three things installed:
+**Prerequisites** (skip any you already have):
 
-- **Node 20+** and **pnpm 9+**
+- **Node 20+** and **pnpm 9+** · `npm i -g pnpm`
 - **Bun 1.1+** · `curl -fsSL https://bun.sh/install | bash`
-- **MetaMask** in your browser (any other injected wallet works too)
+- **MetaMask** in your browser — *optional, see the no-wallet path below*
 
-Then:
+**Three commands, ≈ 4 minutes:**
 
 ```bash
-# 1. Clone and install
-git clone <this-repo> orca
+# ① Clone + install · ~90s on a warm connection
+git clone https://github.com/victorchimakanu/orca
 cd orca
 pnpm install
 
-# 2. Copy the env template (no editing needed for the offline demo)
+# ② Copy the env template · instant
 cp .env.example .env
 
-# 3. Boot everything
+# ③ Boot the four processes · ~45s cold start
 pnpm dev
 ```
 
-That last command starts four processes in parallel:
+Open **[localhost:3000](http://localhost:3000)**, connect MetaMask, paste a policy, and watch the reasoning log stream. The default `.env` runs in `DEMO_MODE=replay` and `EXECUTION_MODE=dry`, so the whole pipeline runs offline against a fixture — **no API key, no USDC, nothing on chain.**
+
+> **No-wallet path (fastest).** Edit `.env` and set `NEXT_PUBLIC_SIGNER_MODE=mock`. The dashboard auto-approves every sign request. Skip MetaMask entirely.
+
+> **Type your own policy.** Grab a free Gemini key at [aistudio.google.com/apikey](https://aistudio.google.com/apikey), paste it into `GEMINI_API_KEY=` in `.env`, restart `pnpm dev`. Without it, the bot uses a canned default policy.
+
+`pnpm dev` runs four processes in parallel:
 
 | Process | URL | Role |
 |---|---|---|
-| `apps/web` | [localhost:3000](http://localhost:3000) | Dashboard + aomi widget — open this first |
+| `apps/web` | [localhost:3000](http://localhost:3000) | Dashboard + aomi widget — **open this first** |
 | `apps/docs` | [localhost:3001](http://localhost:3001) | Docusaurus reference |
 | `apps/bot` | localhost:8787 | The bot (scan loop, reasoning, execution, SSE) |
 | `apps/mock-aomi` | localhost:8080 | Protocol shim between the widget and the bot |
-
-Open **[localhost:3000](http://localhost:3000)**, connect MetaMask, paste a policy in the chat, and watch the reasoning log stream. The default `.env` runs the whole pipeline offline against a fixture, so **no API key and no USDC are required to see it work**.
-
-> **Want LLM-parsed policies instead of the canned default?** Grab a free Gemini key at [aistudio.google.com/apikey](https://aistudio.google.com/apikey) and paste it into `GEMINI_API_KEY=` in `.env`. Restart `pnpm dev`.
 
 ---
 

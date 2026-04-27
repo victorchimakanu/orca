@@ -21,7 +21,7 @@ Type one English sentence. A bot trades correlated Polymarket markets while you 
 </div>
 
 :::tip Submission one pager
-The one pager for this submission lives in the repo as **`How I Built Orca.md`** at the project root — the full build story, architecture decisions, and tradeoffs.
+The one pager for this submission lives in the repo as **`How I Built Orca.md`** at the project root — who Orca is for, why it changes their life, and what's next.
 :::
 
 ## What Orca does
