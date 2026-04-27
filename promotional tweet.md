@@ -1,9 +1,3 @@
-# Promotional Tweet
-
-A 5-post X thread for Orca, written in a *thinking out loud* framework from the company's perspective. Copy each post block as a separate tweet in the thread.
-
----
-
 ## Post 1 / 5
 
 Introducing Orca 🐬
