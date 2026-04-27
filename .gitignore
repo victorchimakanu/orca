@@ -1,0 +1,42 @@
+node_modules
+.pnpm-store
+.next
+.turbo
+dist
+build
+out
+coverage
+
+.env
+.env.local
+.env.*.local
+
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+.DS_Store
+*.swp
+
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# Runtime DB
+*.db
+*.db-journal
+*.db-shm
+*.db-wal
+*.sqlite
+*.sqlite3
+
+# Bot runtime artifacts
+apps/bot/data/
+data/
+
+# Docusaurus build cache
+apps/docs/.docusaurus/
+apps/docs/build/

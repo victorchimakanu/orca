@@ -1,0 +1,30 @@
+{
+  "name": "orca",
+  "version": "0.1.0",
+  "private": true,
+  "description": "AI agent that autonomously finds and executes arbitrage across correlated Polymarket prediction markets, driven by plain-English policies.",
+  "packageManager": "pnpm@10.33.1",
+  "scripts": {
+    "dev": "turbo run dev --parallel",
+    "build": "turbo run build",
+    "lint": "turbo run lint",
+    "typecheck": "turbo run typecheck",
+    "test": "turbo run test",
+    "bot": "pnpm --filter bot dev",
+    "web": "pnpm --filter web dev",
+    "docs": "pnpm --filter docs start",
+    "replay": "pnpm --filter bot replay",
+    "seed-demo": "pnpm --filter bot seed-demo"
+  },
+  "devDependencies": {
+    "turbo": "^2.5.0",
+    "typescript": "^5.7.2"
+  },
+  "pnpm": {
+    "overrides": {
+      "webpackbar": "6.0.1",
+      "webpack": "5.95.0",
+      "@getpara/react-sdk": "2.19.0"
+    }
+  }
+}

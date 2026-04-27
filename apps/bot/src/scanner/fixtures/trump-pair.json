@@ -1,0 +1,47 @@
+{
+  "cluster": "trump-2024-presidency",
+  "markets": [
+    {
+      "conditionId": "0xDEMO_TRUMP_2024",
+      "title": "Will Trump win the 2024 US Presidential election?",
+      "tags": ["trump", "election-2024", "us-politics"],
+      "yesBestBid": 0.545,
+      "yesBestAsk": 0.555,
+      "noBestBid": 0.445,
+      "noBestAsk": 0.455,
+      "liquidityUsd": 180000,
+      "yesTokenId": "111111111111111111111111111111111111111111111111111111111111111111111111",
+      "noTokenId": "111111111111111111111111111111111111111111111111111111111111111111111112"
+    },
+    {
+      "conditionId": "0xDEMO_TRUMP_PA",
+      "title": "Will Trump win Pennsylvania in 2024?",
+      "tags": ["trump", "election-2024", "swing-state", "pennsylvania"],
+      "yesBestBid": 0.465,
+      "yesBestAsk": 0.475,
+      "noBestBid": 0.525,
+      "noBestAsk": 0.535,
+      "liquidityUsd": 64000,
+      "yesTokenId": "222222222222222222222222222222222222222222222222222222222222222222222221",
+      "noTokenId": "222222222222222222222222222222222222222222222222222222222222222222222222"
+    },
+    {
+      "conditionId": "0xDEMO_REPUBLICAN_2024",
+      "title": "Will a Republican win the 2024 Presidential election?",
+      "tags": ["republican", "election-2024", "us-politics"],
+      "yesBestBid": 0.525,
+      "yesBestAsk": 0.535,
+      "noBestBid": 0.465,
+      "noBestAsk": 0.475,
+      "liquidityUsd": 120000,
+      "yesTokenId": "333333333333333333333333333333333333333333333333333333333333333333333331",
+      "noTokenId": "333333333333333333333333333333333333333333333333333333333333333333333332"
+    }
+  ],
+  "knownConstraint": {
+    "relation": "subset",
+    "markets": ["0xDEMO_TRUMP_2024", "0xDEMO_REPUBLICAN_2024"],
+    "explanation": "If Trump wins 2024, a Republican necessarily wins 2024. So P(Trump) ≤ P(Republican)."
+  },
+  "expectedArbBps": 100
+}
